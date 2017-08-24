@@ -1,0 +1,24 @@
+<h1>{{ hello }}</h1>
+
+<style>
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+
+{# 这是一个注释 #}
+
+{% for athlete in athlete_list %}
+<a href="#" class="button">{{ athlete.ipaddr }}</a>
+<button class="button">{{ athlete.ipaddr }}</button>
+<input type="button" class="button" value="{{ athlete.ipaddr }}">
+{% endfor %}
