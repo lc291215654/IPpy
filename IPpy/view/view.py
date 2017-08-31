@@ -28,9 +28,3 @@ def testdb(request):
     test1 = IpInfo(ipaddr='192.168.1.101')
     test1.save()
     return HttpResponse("<p>数据添加成功！</p>")
-
-def testdb2(request):
-    list2 = IpInfo.objects.all()
-    context = {}
-    context['athlete_list'] = list2
-    return render(request, 'hello.html', context)

@@ -18,12 +18,22 @@ from django.contrib import admin
 
 from view import view
 from view import testdb
+from view import index
+from view import occupy
+from view import available
+from view import register
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', index.index),
+    url(r'^index$', index.index),
+    url(r'^occupy', occupy.index),
+    url(r'^available', available.index),
+    url(r'^register', register.index),
+
+    url(r'^hello$', view.hello),
     url(r'^hello$', view.hello),
     url(r'^hello2$', view.hello2),
     url(r'^testdb$', view.testdb),
-    url(r'^testdb2$', view.testdb2),
     url(r'^testdb3$', testdb.testdb),
 ]

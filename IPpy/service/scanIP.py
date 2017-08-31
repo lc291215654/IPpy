@@ -5,12 +5,12 @@ import time
 
 
 def getAliveIP():
-    status , output = commands.getstatusoutput("nmap -sP 192.168.1.0/24")
+    status , output = commands.getstatusoutput("nmap -sP 192.168.142.0/24")
 
     iplist = []
 
     for linea in output.split("\n"):
-        if linea.find("192.168.1.")>1:
+        if linea.find("192.168.142.")>1:
             ip =  re.findall(r'\d+.\d+.\d+.\d+',linea)
             iplist.append(ip.pop())
 
