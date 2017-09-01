@@ -16,12 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from view import view
-from view import testdb
-from view import index
-from view import occupy
-from view import available
-from view import register
+from IPpy.view import scan
+from IPpy.view import view
+from IPpy.view import testdb
+from IPpy.view import index
+from IPpy.view import occupy
+from IPpy.view import available
+from IPpy.view import register
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,6 +31,7 @@ urlpatterns = [
     url(r'^occupy', occupy.index),
     url(r'^available', available.index),
     url(r'^register', register.index),
+    url(r'^scan', scan.index),
 
     url(r'^hello$', view.hello),
     url(r'^hello$', view.hello),

@@ -3,8 +3,6 @@
 from django.http import HttpResponse
 
 from IPpy.models import IpInfo
-
-
 # 数据库操作
 from IPpy.service.scanIP import getAliveIP
 
