@@ -9,11 +9,11 @@
 
 <form action="/scan" method="get">
         <input type="submit" value="开始扫描" name="start">
-    {% if start == '1' %}
+    {% if start == 1 %}
         已开启
     {% endif %}
-        <input type="submit" value="停止扫描" name="stop">
-    {% if stop == '1' %}
-        已停止
-    {% endif %}
+{#        <input type="submit" value="停止扫描" name="stop">#}
+{#    {% if stop == '1' %}#}
+{#        已停止#}
+{#    {% endif %}#}
 </form>

@@ -4,7 +4,7 @@ from IPpy.models import IpInfo
 
 
 def index(request):
-    iplist = IpInfo.objects.all()
+    iplist = IpInfo.objects.filter(flag=3)
     context = {}
-    context['athlete_list'] = iplist
+    context['occupy_list'] = iplist
     return render(request, 'occupy.html', context)

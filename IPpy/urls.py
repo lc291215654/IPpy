@@ -18,7 +18,6 @@ from django.contrib import admin
 
 from IPpy.view import scan
 from IPpy.view import view
-from IPpy.view import testdb
 from IPpy.view import index
 from IPpy.view import occupy
 from IPpy.view import available
@@ -27,6 +26,7 @@ from IPpy.view import register
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index.index),
+
     url(r'^index$', index.index),
     url(r'^occupy', occupy.index),
     url(r'^available', available.index),
@@ -37,5 +37,4 @@ urlpatterns = [
     url(r'^hello$', view.hello),
     url(r'^hello2$', view.hello2),
     url(r'^testdb$', view.testdb),
-    url(r'^testdb3$', testdb.testdb),
 ]
