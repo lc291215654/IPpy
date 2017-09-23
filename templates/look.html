@@ -9,11 +9,9 @@
 <br />
 
 <form action="/register" method="post">
-{% csrf_token %}
-        ip地址<input type="text" name="ipaddr" {% for i in ip %}value={{ i.ipaddr }}{% endfor %}><br/>
-
+    {% for i in ip %}
+        ip地址<input type="text" name="ipaddr" value={{ i.ipaddr }}><br/>
+    {% endfor %}
         使用者<input type="text" name="username"><br/>
-        用途<input type="text" name="describe"><br/>
-        <input type="submit" name = "zhuxiao" value="注销">
-        <input type="submit" name = "shenqing" value="申请">
+        <input type="submit" name = "look" value="查询">
 </form>

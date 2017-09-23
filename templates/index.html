@@ -27,19 +27,20 @@
 </style>
 
 <h1>IP管理小程序</h1>
-<h6>遵循开放，自觉，节约的原则</h6>
+<h6>遵循开放，节约的原则</h6>
 <a href="./index">已登记使用的ip地址</a>
 <a href="./occupy">未登记被占用的ip地址</a>
 <a href="./available">可用的ip地址</a>
+<a href="./look">查询我已经使用的ip</a>
 <br />
 <br />
 
 {% for ip in athlete_list %}
     {% if ip.flag == 1 %}
-        <a href="#" class="button">{{ ip.ipaddr }}</a>
+        <a href="./register?id={{ ip.id }}" class="button">{{ ip.ipaddr }}</a>
     {% endif %}
     {% if ip.flag == 2 %}
-        <a href="#" class="button_gray">{{ ip.ipaddr }}</a>
+        <a href="./register?id={{ ip.id }}" class="button_gray">{{ ip.ipaddr }}</a>
     {% endif %}
 
 {% endfor %}

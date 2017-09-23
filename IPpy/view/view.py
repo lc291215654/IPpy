@@ -1,28 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# from django.http import HttpResponse
 from django.http import HttpResponse
-from django.shortcuts import render
 
 from IPpy.models import IpInfo
 from IPpy.service.scanIP import getAliveIP
-
-
-def hello(request):
-    context = {}
-    context['hello'] = 'Hello World!'
-    athlete_list=['a','af']
-    context['athlete_list'] = athlete_list
-
-    return render(request, 'hello.html', context)
-
-def hello2(request):
-    context = {}
-    context['hello'] = 'Hello World!'
-    athlete_list=['a','af']
-    context['athlete_list'] = athlete_list
-
-    return render(request, 'hello2.html', context)
 
 # 数据库操作
 def testdb(request):

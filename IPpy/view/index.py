@@ -7,4 +7,7 @@ def index(request):
     iplist = IpInfo.objects.all()
     context = {}
     context['athlete_list'] = iplist
+
+
+
     return render(request, 'index.html', context)

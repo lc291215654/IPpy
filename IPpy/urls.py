@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from IPpy.view import scan
+from IPpy.view import scan, look
 from IPpy.view import view
 from IPpy.view import index
 from IPpy.view import occupy
@@ -31,10 +31,8 @@ urlpatterns = [
     url(r'^occupy', occupy.index),
     url(r'^available', available.index),
     url(r'^register', register.index),
+    url(r'^look', look.index),
     url(r'^scan', scan.index),
 
-    url(r'^hello$', view.hello),
-    url(r'^hello$', view.hello),
-    url(r'^hello2$', view.hello2),
     url(r'^testdb$', view.testdb),
 ]
