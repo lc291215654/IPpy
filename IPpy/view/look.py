@@ -6,5 +6,7 @@ from IPpy.models import IpInfo
 def index(request):
     context = {}
     if request.POST:
-        context['rlt'] = request.POST['q']
+        username = request.POST['username']
+        iplist = IpInfo.objects.filter(username=username)
+        context['athlete_list'] = iplist
     return render(request, 'look.html', context)

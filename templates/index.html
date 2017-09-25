@@ -3,11 +3,11 @@
     background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 6px 8px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
     margin: 4px 2px;
     cursor: pointer;
 }
@@ -16,11 +16,11 @@
     background-color: #bbbbbb;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 6px 8px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
     margin: 4px 2px;
     cursor: pointer;
 }
@@ -37,10 +37,10 @@
 
 {% for ip in athlete_list %}
     {% if ip.flag == 1 %}
-        <a href="./register?id={{ ip.id }}" class="button">{{ ip.ipaddr }}</a>
+        <a href="./register?id={{ ip.id }}&flag=index" class="button">{{ ip.ipaddr}}:{{ip.username }}</a>
     {% endif %}
     {% if ip.flag == 2 %}
-        <a href="./register?id={{ ip.id }}" class="button_gray">{{ ip.ipaddr }}</a>
+        <a href="./register?id={{ ip.id }}&flag=index" class="button_gray">{{ ip.ipaddr }}:{{ip.username }}</a>
     {% endif %}
 
 {% endfor %}

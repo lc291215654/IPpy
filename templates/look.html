@@ -1,3 +1,31 @@
+<style>
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 6px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button_gray {
+    background-color: #bbbbbb;
+    border: none;
+    color: white;
+    padding: 6px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+</style>
 <h1>IP管理小程序</h1>
 <h6>遵循开放，节约的原则</h6>
 <a href="/index">已登记使用的ip地址</a>
@@ -8,10 +36,20 @@
 <br />
 <br />
 
-<form action="/register" method="post">
-    {% for i in ip %}
-        ip地址<input type="text" name="ipaddr" value={{ i.ipaddr }}><br/>
-    {% endfor %}
+<form action="/look" method="post">
+    {% csrf_token %}
+
         使用者<input type="text" name="username"><br/>
         <input type="submit" name = "look" value="查询">
 </form>
+
+
+{% for ip in athlete_list %}
+    {% if ip.flag == 1 %}
+        <a href="./register?id={{ ip.id }}&flag=look" class="button">{{ ip.ipaddr}}:{{ip.username }}</a>
+    {% endif %}
+    {% if ip.flag == 2 %}
+        <a href="./register?id={{ ip.id }}&flag=look" class="button_gray">{{ ip.ipaddr }}:{{ip.username }}</a>
+    {% endif %}
+
+{% endfor %}

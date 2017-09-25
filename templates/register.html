@@ -5,15 +5,30 @@
 <a href="/available">可用的ip地址</a>
 <a href="./look">查询我已经使用的ip</a>
 
-<br />
-<br />
-
+<br/>
+<br/>
+<!--
+flag 1 : 注册正在使用
+     2 : 注册未使用
+     3 : 未注册在使用
+     4 : 空闲
+-->
 <form action="/register" method="post">
-{% csrf_token %}
-        ip地址<input type="text" name="ipaddr" {% for i in ip %}value={{ i.ipaddr }}{% endfor %}><br/>
+    {% csrf_token %}
+    ip地址<input type="text" name="ipaddr" {% for i in ip %}value={{ i.ipaddr }}{% endfor %}><br/>
 
-        使用者<input type="text" name="username"><br/>
-        用途<input type="text" name="describe"><br/>
-        <input type="submit" name = "zhuxiao" value="注销">
-        <input type="submit" name = "shenqing" value="申请">
+    使用者<input type="text" name="username" {% for i in ip %}value={{ i.username }}{% endfor %}><br/>
+    用途<input type="text" name="describe" {% for i in ip %}value={{ i.describe }}{% endfor %}><br/>
+    {% for i in ip %}
+        {% if i.flag == 1 or i.flag == 2 %}
+            <input type="submit" name="zhuxiao" value="注销">
+        {% endif %}
+
+        {% if i.flag == 3 or i.flag == 4 %}
+            <input type="submit" name="shenqing" value="申请">
+        {% endif %}
+    {% endfor %}
+    {% if success %}
+        操作成功
+    {% endif %}
 </form>
