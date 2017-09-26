@@ -1,28 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>IP-manager</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+</head>
 <style>
 .button {
-    background-color: #CD5555;
+    box-shadow: 0 0 0 1px #999 inset!important;
+    color: #999!important;
+  background: #eee;
     border: none;
-    color: white;
-    padding: 6px 12px;
+    width: 220px;
+    padding: 6px 8px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
-    margin: 4px 2px;
+    margin: 4px 6px;
     cursor: pointer;
 }
+.button:hover{
+     box-shadow: 0 0 0 1px #198f35 inset!important;
+     color: #198f35!important;
+}
+    .background{
+    background: #ecf0f5;
+}
+.wrapper{
+
+    width:80%;
+    margin: 0 auto;
+
+}
+
+.textcenter{
+    text-align: center;
+}
+.buttonTeal{
+    background: #00B5AD;
+    border:none;
+    color: #fff;
+    border-radius: .28571429rem;
+    width:220px;
+    height:40px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+    .active{
+        background:#16ab39;
+    }
 </style>
-
-<h1>IP管理小程序</h1>
-<h6>遵循开放，节约的原则</h6>
-<a href="./index">已登记使用的ip地址</a>
-<a href="./occupy">未登记被占用的ip地址</a>
-<a href="./available">可用的ip地址</a>
-<a href="./look">查询我已经使用的ip</a>
-
+<body class="background">
+<div class="wrapper">
+<h1 class="textcenter">IP管理小程序</h1>
+<p class="textcenter">遵循开放，节约的原则</p>
+<a href="./index"><button class="buttonTeal" style="margin-left: 200px">已登记使用的ip地址</button></a>
+<a href="./occupy"><button class="buttonTeal" id="occupy">未登记被占用的ip地址</button></a>
+<a href="./available"><button class="buttonTeal">可用的ip地址</button></a>
+<a href="./look"><button class="buttonTeal">查询我已经使用的ip</button></a>
 <br />
 <br />
 
 {% for ip in occupy_list %}
     <a href="./register?id={{ ip.id }}&flag=occupy" class="button">{{ ip.ipaddr }}</a>
 {% endfor %}
+
+</div>
+<script>
+    document.getElementById('occupy').classList.add('active');
+</script>
+</body>
+</html>

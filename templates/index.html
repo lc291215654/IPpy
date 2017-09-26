@@ -20,7 +20,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
-    margin: 4px 2px;
+    margin: 4px 6px;
     cursor: pointer;
 }
 .button:hover{
@@ -37,8 +37,12 @@
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
-    margin: 4px 2px;
+    margin: 4px 6px;
     cursor: pointer;
+}
+.button_gray:hover{
+    box-shadow: 0 0 0 1px #999 inset!important;
+     color: #999!important;
 }
 .background{
     background: #ecf0f5;
@@ -64,13 +68,16 @@
     cursor: pointer;
     margin-right: 30px;
 }
+    .active{
+        background:#16ab39;
+    }
 </style>
 
 <body class="background">
 <div class="wrapper">
 <h1 class="textcenter">IP管理小程序</h1>
 <p class="textcenter">遵循开放，节约的原则</p>
-<a href="./index"><button class="buttonTeal" style="margin-left: 200px">已登记使用的ip地址</button></a>
+<a href="./index"><button class="buttonTeal " style="margin-left: 200px" id="index">已登记使用的ip地址</button></a>
 <a href="./occupy"><button class="buttonTeal">未登记被占用的ip地址</button></a>
 <a href="./available"><button class="buttonTeal">可用的ip地址</button></a>
 <a href="./look"><button class="buttonTeal">查询我已经使用的ip</button></a>
@@ -88,7 +95,9 @@
 {% endfor %}
 
 </div>
-
+<script>
+    document.getElementById('index').classList.add('active');
+</script>
 
 </body>
 </html>

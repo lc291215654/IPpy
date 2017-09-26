@@ -1,12 +1,108 @@
-<h1>IP管理小程序</h1>
-<h6>遵循开放，节约的原则</h6>
-<a href="/index">已登记使用的ip地址</a>
-<a href="/occupy">未登记被占用的ip地址</a>
-<a href="/available">可用的ip地址</a>
-<a href="./look">查询我已经使用的ip</a>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>IP-manager</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+</head>
 
-<br/>
-<br/>
+<style>
+.button {
+    box-shadow: 0 0 0 1px #00B5AD inset!important;
+    color: #00B5AD!important;
+
+    border: none;
+    width: 220px;
+    padding: 6px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 6px;
+    cursor: pointer;
+}
+.button:hover{
+     box-shadow: 0 0 0 1px #198f35 inset!important;
+     color: #198f35!important;
+}
+.button_gray {
+    width: 220px;
+    background-color: #bbbbbb;
+    border: none;
+    color: white;
+    padding: 6px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 6px;
+    cursor: pointer;
+}
+.button_gray:hover{
+    box-shadow: 0 0 0 1px #999 inset!important;
+     color: #999!important;
+}
+.background{
+    background: #ecf0f5;
+}
+.wrapper{
+
+    width:80%;
+    margin: 0 auto;
+
+}
+
+.textcenter{
+    text-align: center;
+}
+.buttonTeal{
+    background: #00B5AD;
+    border:none;
+    color: #fff;
+    border-radius: .28571429rem;
+    width:220px;
+    height:40px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+    .introduce{
+        display: inline-block;
+        width:100px;
+    }
+    .user{
+        width:200px;
+        height: 24px;
+        margin-bottom: 20px;
+    }
+    .search{
+    box-shadow: 0 0 0 1px #00B5AD inset!important;
+    color: #00B5AD!important;
+    border-radius: 3px;
+    border: none;
+    width: 120px;
+    padding: 6px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 6px;
+    cursor: pointer;
+    }
+</style>
+
+<body class="background">
+<div class="wrapper">
+<h1 class="textcenter">IP管理小程序</h1>
+<p class="textcenter">遵循开放，节约的原则</p>
+<a href="./index"><button class="buttonTeal " style="margin-left: 200px" id="index">已登记使用的ip地址</button></a>
+<a href="./occupy"><button class="buttonTeal">未登记被占用的ip地址</button></a>
+<a href="./available"><button class="buttonTeal">可用的ip地址</button></a>
+<a href="./look"><button class="buttonTeal" id="look">查询我已经使用的ip</button></a>
+<br />
+<br />
 <!--
 flag 1 : 注册正在使用
      2 : 注册未使用
@@ -15,20 +111,27 @@ flag 1 : 注册正在使用
 -->
 <form action="/register" method="post">
     {% csrf_token %}
-    ip地址<input type="text" name="ipaddr" {% for i in ip %}value={{ i.ipaddr }}{% endfor %}><br/>
+ <div class="textcenter"><span class="introduce">ip地址</span><input class="user" type="text" name="ipaddr" {% for i in ip %}value={{ i.ipaddr }}{% endfor %}></div>
+ <div class="textcenter"><span class="introduce">使用者</span><input class="user" type="text" name="username" {% for i in ip %}value={{ i.username }}{% endfor %}></div>
+ <div class="textcenter"><span class="introduce">用途</span><input class="user" type="text" name="describe" {% for i in ip %}value={{ i.describe }}{% endfor %}></div>
 
-    使用者<input type="text" name="username" {% for i in ip %}value={{ i.username }}{% endfor %}><br/>
-    用途<input type="text" name="describe" {% for i in ip %}value={{ i.describe }}{% endfor %}><br/>
+<div class="textcenter">
     {% for i in ip %}
         {% if i.flag == 1 or i.flag == 2 %}
-            <input type="submit" name="zhuxiao" value="注销">
+            <input class="search"  type="submit" name="zhuxiao" value="注销">
         {% endif %}
 
         {% if i.flag == 3 or i.flag == 4 %}
-            <input type="submit" name="shenqing" value="申请">
+            <input class="search" type="submit" name="shenqing" value="申请">
         {% endif %}
     {% endfor %}
     {% if success %}
         操作成功
     {% endif %}
+</div>
+
 </form>
+</div>
+
+</body>
+</html>
