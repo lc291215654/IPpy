@@ -111,7 +111,7 @@ flag 1 : 注册正在使用
 -->
 <form action="/register" method="post">
     {% csrf_token %}
- <div class="textcenter"><span class="introduce">ip地址</span><input disabled="disabled" class="user" type="text" name="ipaddr" {% for i in ip %}value={{ i.ipaddr }}{% endfor %}></div>
+ <div class="textcenter"><span class="introduce">ip地址</span><input class="user" type="text" name="ipaddr" {% for i in ip %}value={{ i.ipaddr }}{% endfor %}></div>
  <div class="textcenter"><span class="introduce">使用者</span><input class="user" type="text" name="username" {% for i in ip %}value={{ i.username }}{% endfor %}></div>
  <div class="textcenter"><span class="introduce">用途</span><input class="user" type="text" name="describe" {% for i in ip %}value={{ i.describe }}{% endfor %}></div>
 
